@@ -56,12 +56,17 @@ export default function HomePage() {
           {
             ACTIONS.map((action, index) => {
               return (
-                <div className="w-full sm:w-auto">
+                <motion.div 
+                  className="w-full sm:w-auto"
+                  key={index}
+                  animate={{ y:[50, 0], opacity: [0, 1]}}
+                  transition={{ delay: 0.1 * (index+2) + 0.5 }}
+                  >
                   <Button.Outline href={action.href}>
                     {action.icon}
                     <span>{action.text}</span>
 								  </Button.Outline>
-                </div>
+                </motion.div>
               )
             })
           }
