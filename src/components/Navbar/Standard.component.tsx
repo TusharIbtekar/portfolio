@@ -1,24 +1,6 @@
 import { NavigationItem, NavigationItemType } from "@/types/navigation"
 import { motion } from "framer-motion";
-
-
-const ACTIONS: Array<NavigationItem> = [
-  {
-    type: NavigationItemType.LINK,
-    href: '/',
-    text: 'Blog',
-  },
-  {
-    type: NavigationItemType.LINK,
-    href: '/',
-    text: 'Projects',
-  },
-  {
-    type: NavigationItemType.LINK,
-    href: 'https://github.com/TusharIbtekar',
-    text: 'GitHub',
-  },
-]
+import { ACTIONS } from "@/lib";
 
 export function Standard(): JSX.Element {
 
@@ -34,7 +16,7 @@ export function Standard(): JSX.Element {
       }
       </div>
       <div>
-        
+
       </div>
     </nav>
   )
