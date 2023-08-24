@@ -25,17 +25,12 @@ const ACTIONS: Array<NavigationItem> = [
   },
 ]
 
-import {useTheme} from "next-themes";
-
-
 export default function HomePage() {
-  const {theme, setTheme} = useTheme()
-  console.log(theme)
   return (
     <div className="min-h-screen flex items-center justify-center p-12">
       <div className="max-w-md sm:max-w-lg md:sm:max-w-2xl lg:sm:max-w-3xl w-full space-y-8 text-center">
         <motion.h1 
-          className="text-gray-500 dark:text-white text-5xl sm:text-6xl md:text-6xl lg:text-8xl tracking-tight font-extrabold"
+          className="font-kaisei text-gray-500 dark:text-white text-5xl sm:text-6xl md:text-6xl lg:text-8xl tracking-tight font-extrabold"
           initial={{ opacity: 0, scale: 0.75 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{
@@ -47,7 +42,7 @@ export default function HomePage() {
           Tushar Ibtekar
         </motion.h1>
         <motion.p 
-          className="max-w-xs mt-4 md:mt-8 mx-auto text-base text-gray-400 sm:text-lg md:text-xl md:max-w-3xl"
+          className="max-w-xs mt-4 md:mt-8 mx-auto text-base text-gray-400 sm:text-lg md:text-2xl md:max-w-3xl"
           animate = {{opacity: [0, 1], scale: [0.75, 1]}} 
           transition={{
             type: "spring",
