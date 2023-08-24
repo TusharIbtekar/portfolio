@@ -25,8 +25,12 @@ const ACTIONS: Array<NavigationItem> = [
   },
 ]
 
+import {useTheme} from "next-themes";
+
 
 export default function HomePage() {
+  const {theme, setTheme} = useTheme()
+  console.log(theme)
   return (
     <div className="min-h-screen flex items-center justify-center p-12">
       <div className="max-w-md sm:max-w-lg md:sm:max-w-2xl lg:sm:max-w-3xl w-full space-y-8 text-center">
@@ -64,7 +68,7 @@ export default function HomePage() {
                   >
                   <Button.Outline href={action.href}>
                     {action.icon}
-                    <span>{action.text}</span>
+                    <span className="ml-2">{action.text}</span>
 								  </Button.Outline>
                 </motion.div>
               )
