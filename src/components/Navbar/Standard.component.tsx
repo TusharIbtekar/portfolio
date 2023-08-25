@@ -10,7 +10,11 @@ export function Standard(): JSX.Element {
       <div className="mx-auto flex max-w-5xl items-center justify-between">
         <div className="space-x-5 sm:flex">
           {ACTIONS.map((action, index) => {
-            return <span className="ml-2">{action.text}</span>;
+            return (
+              <span key={index} className="ml-2">
+                {action.text}
+              </span>
+            );
           })}
         </div>
         <div>
