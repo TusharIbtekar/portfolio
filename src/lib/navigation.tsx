@@ -1,23 +1,29 @@
 import { NavigationItem, NavigationItemType } from "@/types/navigation";
-import {Library, Github, FolderGit2 } from 'lucide-react';
+import { Library, Github, FolderGit2, ShipWheel } from "lucide-react";
 
 export const ACTIONS: Array<NavigationItem> = [
   {
     type: NavigationItemType.LINK,
-    href: '/',
+    href: "/",
     icon: <Library />,
-    text: 'Blog',
+    text: "Blog",
   },
   {
     type: NavigationItemType.LINK,
-    href: '/',
+    href: "/",
     icon: <FolderGit2 />,
-    text: 'Projects',
+    text: "Projects",
   },
   {
     type: NavigationItemType.LINK,
-    href: 'https://github.com/TusharIbtekar',
-    icon: <Github />,
-    text: 'GitHub',
+    href: "/",
+    icon: <ShipWheel />,
+    text: "Experiences",
   },
-]
+  {
+    type: NavigationItemType.LINK,
+    href: "https://github.com/TusharIbtekar",
+    icon: <Github />,
+    text: "GitHub",
+  },
+];
