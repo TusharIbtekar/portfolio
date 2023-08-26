@@ -1,8 +1,5 @@
-import { NavigationItem, NavigationItemType } from "@/types/navigation";
-import { motion } from "framer-motion";
 import { ACTIONS } from "@/lib";
-import { Button } from "@/components";
-import ThemeSwitcher from "../ThemeSwitcher";
+import ThemeSwitcher from "./ThemeSwitcher.component";
 
 export function Standard(): JSX.Element {
   return (
@@ -17,7 +14,7 @@ export function Standard(): JSX.Element {
             );
           })}
         </div>
-        <div>
+        <div className="flex items-center">
           <ThemeSwitcher />
         </div>
       </div>
