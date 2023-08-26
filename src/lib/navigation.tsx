@@ -18,7 +18,7 @@ export const ACTIONS: Array<NavigationItem> = [
     type: NavigationItemType.LINK,
     href: "#",
     icon: <ShipWheel />,
-    text: "Experiences",
+    text: "Timeline",
   },
   {
     type: NavigationItemType.LINK,
