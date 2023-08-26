@@ -3,12 +3,23 @@ import { motion } from "framer-motion";
 
 import { ACTIONS } from "@/lib";
 import { usePathname } from "next/navigation";
+import { NavigationItem, NavigationItemType } from "@/types/navigation";
+import { Home } from "lucide-react";
+
+console.log(ACTIONS);
+const homeItem: NavigationItem = {
+  type: NavigationItemType.LINK,
+  href: "/",
+  icon: <Home />,
+  text: "Home",
+};
+const navACTIONS = [homeItem, ...ACTIONS];
 
 export default function NavigationBar() {
   const pathName = usePathname();
   return (
     <div className="space-x-5 sm:flex">
-      {ACTIONS.map((action, index) => {
+      {navACTIONS.map((action, index) => {
         const active = pathName?.includes(action.href || "/");
         return (
           <Link

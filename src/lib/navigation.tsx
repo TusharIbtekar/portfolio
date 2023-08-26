@@ -4,7 +4,7 @@ import { Library, Github, FolderGit2, ShipWheel } from "lucide-react";
 export const ACTIONS: Array<NavigationItem> = [
   {
     type: NavigationItemType.LINK,
-    href: "/",
+    href: "#",
     icon: <Library />,
     text: "Blog",
   },
