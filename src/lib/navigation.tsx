@@ -1,5 +1,5 @@
 import { NavigationItem, NavigationItemType } from "@/types/navigation";
-import { Library, Github, FolderGit2, ShipWheel } from "lucide-react";
+import { Library, Github, FolderGit2, ShipWheel, Linkedin } from "lucide-react";
 
 export const ACTIONS: Array<NavigationItem> = [
   {
@@ -25,5 +25,11 @@ export const ACTIONS: Array<NavigationItem> = [
     href: "https://github.com/TusharIbtekar",
     icon: <Github />,
     text: "GitHub",
+  },
+  {
+    type: NavigationItemType.LINK,
+    href: "https://www.linkedin.com/in/tushar-ibtekar/",
+    icon: <Linkedin />,
+    text: "LinkedIn",
   },
 ];

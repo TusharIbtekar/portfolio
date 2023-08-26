@@ -6,7 +6,6 @@ import { usePathname } from "next/navigation";
 import { NavigationItem, NavigationItemType } from "@/types/navigation";
 import { Home } from "lucide-react";
 
-console.log(ACTIONS);
 const homeItem: NavigationItem = {
   type: NavigationItemType.LINK,
   href: "/",
