@@ -25,6 +25,11 @@
   background-position: 0 100%;
 }
 
+@layer base{
+  body {
+      @apply dark:bg-zinc-900 bg-stone-200
+  }
+}
 
 /* :root {
   --foreground-rgb: 0, 0, 0;
