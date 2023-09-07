@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components";
+import Footer from "@/components/Footer/Footer.component";
 
 export function DefaultLayout({ children }: PropsWithChildren): JSX.Element {
   const variants = {
@@ -21,6 +22,7 @@ export function DefaultLayout({ children }: PropsWithChildren): JSX.Element {
       >
         <Navbar.Standard />
         <div className="flex flex-col justify-center px-8">{children}</div>
+        <Footer />
       </motion.main>
     </>
   );
