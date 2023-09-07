@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components";
-import Footer from "@/components/Footer/Footer.component";
+import { Footer } from "@/components/Footer";
 
 export function DefaultLayout({ children }: PropsWithChildren): JSX.Element {
   const variants = {

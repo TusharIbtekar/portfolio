@@ -1,7 +1,7 @@
 import { ACTIONS } from "@/lib";
 import Link from "next/link";
 
-export default function Footer() {
+export function Footer() {
   return (
     <div className="absolute flex flex-row justify-between bottom-12 right-40 w-20">
       {ACTIONS.map((action, index) => {
