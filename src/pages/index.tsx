@@ -36,17 +36,19 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-4 sm:space-y-0 w-full mt-8 sm:mt-4">
             {ACTIONS.map((action, index) => {
               return (
-                <motion.div
-                  className="w-full sm:w-auto"
-                  key={index}
-                  animate={{ y: [50, 0], opacity: [0, 1] }}
-                  transition={{ delay: 0.1 * (index + 2) + 0.5 }}
-                >
-                  <Button.Outline href={action.href}>
-                    {action.icon}
-                    <span className="ml-2">{action.text}</span>
-                  </Button.Outline>
-                </motion.div>
+                action.slot !== "home" && (
+                  <motion.div
+                    className="w-full sm:w-auto"
+                    key={index}
+                    animate={{ y: [50, 0], opacity: [0, 1] }}
+                    transition={{ delay: 0.1 * (index + 2) + 0.5 }}
+                  >
+                    <Button.Outline href={action.href}>
+                      {action.icon}
+                      <span className="ml-2">{action.text}</span>
+                    </Button.Outline>
+                  </motion.div>
+                )
               );
             })}
           </div>

@@ -4,17 +4,15 @@ interface NavigationItemBase {
   endIcon?: string | ReactNode;
   icon?: string | ReactNode;
   text: string;
-  onClick?: ()=> void;
+  onClick?: () => void;
   href?: string;
+  slot?: string;
 }
 
 export enum NavigationItemType {
-  LINK = 'link'
+  LINK = "link",
 }
 
-export type NavigationItem =
-  (
-    {
-      type: NavigationItemType.LINK; 
-    } & NavigationItemBase
-  );
+export type NavigationItem = {
+  type: NavigationItemType.LINK;
+} & NavigationItemBase;
