@@ -9,7 +9,7 @@ export const Outline = ({
   return (
     <Link
       className="inline-flex items-center justify-center w-full sm:w-auto 
-        bg-gray-50/75 
+        bg-gray-50/25 
         dark:bg-gray-900/0 dark:border-gray-700 dark:text-blue-400 
         dark:hover:bg-slate-900/25 
         dark:hover:text-blue-500 
