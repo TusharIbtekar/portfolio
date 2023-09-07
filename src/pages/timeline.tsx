@@ -4,7 +4,7 @@ import { Layout } from "@/layouts";
 export default function Timeline() {
   return (
     <Layout.Default>
-      <div className="flex flex-grow min-h-screen pt-16 mt-10 pb-12">
+      <div className="flex flex-grow pt-16 mt-10 pb-12">
         <div className="flex-grow flex flex-col items-center max-w-sm sm:max-w-2xl w-full mx-auto px-0 sm:px-16">
           <motion.h1
             className="font-kaisei text-gray-500 dark:text-white text-3xl sm:text-xl md:text-2xl lg:text-3xl tracking-tight"

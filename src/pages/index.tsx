@@ -36,7 +36,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center sm:space-x-4 space-y-4 sm:space-y-0 w-full mt-8 sm:mt-4">
             {ACTIONS.map((action, index) => {
               return (
-                action.slot !== "home" && (
+                action.slot === "nav" && (
                   <motion.div
                     className="w-full sm:w-auto"
                     key={index}
