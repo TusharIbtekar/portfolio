@@ -21,6 +21,7 @@ export const getStaticProps: GetStaticProps<experienceProps> = async () => {
 export default function Timeline({
   experiences,
 }: experienceProps): JSX.Element {
+  console.log(experiences);
   return (
     <Layout.Default>
       <div className="flex flex-grow pt-16 mt-10 pb-12">
