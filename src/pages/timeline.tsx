@@ -1,7 +1,26 @@
+import { GetStaticProps } from "next";
 import { motion } from "framer-motion";
 import { Layout } from "@/layouts";
+import type { Experience } from "@/types";
+import { Tag } from "@/components/Tags";
 
-export default function Timeline() {
+interface experienceProps {
+  experiences: Experience[];
+}
+
+export const getStaticProps: GetStaticProps<experienceProps> = async () => {
+  const { default: experiences } = await import("@/data/experiences.json");
+
+  return {
+    props: {
+      experiences,
+    },
+  };
+};
+
+export default function Timeline({
+  experiences,
+}: experienceProps): JSX.Element {
   return (
     <Layout.Default>
       <div className="flex flex-grow pt-16 mt-10 pb-12">
@@ -19,9 +38,23 @@ export default function Timeline() {
           >
             Experiences
           </motion.h1>
-          <ul className="-mb-8" role="list">
-            hello
-          </ul>
+          <div className="morphs p-7 w-full mt-10">
+            {experiences.map((experience, index) => {
+              return (
+                <>
+                  <div className="flex justify-between items-center">
+                    <h2 className="text-xl font-bold text-zinc-300">
+                      {experience.title}
+                    </h2>
+                    <time className="block text-sm font-semibold text-slate-100">
+                      {experience.period}
+                    </time>
+                  </div>
+                  <p className=" text-sm">{experience.role}</p>
+                </>
+              );
+            })}
+          </div>
         </div>
       </div>
     </Layout.Default>
