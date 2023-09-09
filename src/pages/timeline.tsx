@@ -1,16 +1,12 @@
 import { GetStaticProps } from "next";
 import { motion } from "framer-motion";
 import { Layout } from "@/layouts";
-import type { Experience } from "@/types";
-import { Tag } from "@/components/Tags";
+import type { Experience, Experiences } from "@/types";
+import { ExperienceCard } from "@/components/Timeline";
 
-interface experienceProps {
-  experiences: Experience[];
-}
-
-export const getStaticProps: GetStaticProps<experienceProps> = async () => {
+export const getStaticProps: GetStaticProps<Experiences> = async () => {
   const { default: experiences } = await import("@/data/experiences.json");
-
+  console.log(experiences);
   return {
     props: {
       experiences,
@@ -18,10 +14,7 @@ export const getStaticProps: GetStaticProps<experienceProps> = async () => {
   };
 };
 
-export default function Timeline({
-  experiences,
-}: experienceProps): JSX.Element {
-  console.log(experiences);
+export default function Timeline({ experiences }: Experiences): JSX.Element {
   return (
     <Layout.Default>
       <div className="flex flex-grow pt-16 mt-10 pb-12">
@@ -39,24 +32,7 @@ export default function Timeline({
           >
             Experiences
           </motion.h1>
-          <div className="primary-morphs px-7 py-4 w-full mt-10">
-            {experiences.map((experience, index) => {
-              return (
-                <>
-                  <div className="flex justify-between items-center">
-                    <h2 className="text-lg md:text-xl font-bold text-zinc-300">
-                      {experience.title}
-                    </h2>
-                    <time className="block text-xs text-slate-100">
-                      {experience.period}
-                    </time>
-                  </div>
-                  <p className="text-sm">{experience.role}</p>
-                  <Tag skills={experience.skills} />
-                </>
-              );
-            })}
-          </div>
+          <ExperienceCard experiences={experiences} />
         </div>
       </div>
     </Layout.Default>

@@ -5,3 +5,7 @@ export interface Experience {
   period: string;
   logo?: string;
 }
+
+export interface Experiences {
+  experiences: Experience[];
+}
