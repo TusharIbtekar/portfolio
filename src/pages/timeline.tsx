@@ -1,18 +1,8 @@
-import { GetStaticProps } from "next";
 import { motion } from "framer-motion";
 import { Layout } from "@/layouts";
-import type { Experience, Experiences } from "@/types";
+import type { Experiences } from "@/types";
 import { ExperienceCard } from "@/components/Timeline";
-
-export const getStaticProps: GetStaticProps<Experiences> = async () => {
-  const { default: experiences } = await import("@/data/experiences.json");
-  console.log(experiences);
-  return {
-    props: {
-      experiences,
-    },
-  };
-};
+import { EXPERIENCES } from "@/lib/experiences";
 
 export default function Timeline({ experiences }: Experiences): JSX.Element {
   return (
@@ -32,7 +22,7 @@ export default function Timeline({ experiences }: Experiences): JSX.Element {
           >
             Experiences
           </motion.h1>
-          <ExperienceCard experiences={experiences} />
+          <ExperienceCard experiences={EXPERIENCES} />
         </div>
       </div>
     </Layout.Default>
