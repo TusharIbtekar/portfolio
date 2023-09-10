@@ -10,7 +10,7 @@ export const PROJECTS: Array<Project> = [
   },
   {
     name: "Portfolio",
-    stack: ["nextjs", "typescript", "tailwindcss"],
+    stack: ["nextjs", "typescript", "tailwindcss", "ci/cd"],
     githubLink: "https://github.com/TusharIbtekar/portfolio",
     demoLink: "https://www.ibtekar.dev/",
   },
