@@ -6,11 +6,8 @@ export function Standard(): JSX.Element {
   const isHome = usePathname() === "/" ? true : false;
   return (
     <nav className="fixed w-full bg-transparent py-5 md:py-10">
-      <div className="mx-auto flex w-4/3 md:w-1/3 px-2 items-center justify-between">
+      <div className="mx-auto flex w-full lg:w-1/3 px-2 items-center justify-between">
         <div>{!isHome && <NavigationBar />}</div>
-        {/* <div>
-          <NavigationBar />
-        </div> */}
         <div className="flex items-center">
           <ThemeSwitcher />
         </div>
