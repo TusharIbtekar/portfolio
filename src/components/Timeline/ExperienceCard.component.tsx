@@ -8,10 +8,10 @@ export function ExperienceCard({ experiences }: Experiences): JSX.Element {
         return (
           <>
             <div className="flex justify-between items-center">
-              <h2 className="text-lg md:text-xl font-bold text-zinc-300">
+              <h2 className="text-lg md:text-xl font-bold text-primary-color">
                 {experience.title}
               </h2>
-              <time className="block text-xs text-slate-100">
+              <time className="block text-xs text-primary-color">
                 {experience.period}
               </time>
             </div>

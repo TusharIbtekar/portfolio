@@ -6,7 +6,7 @@ import { Theme } from "@/types";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider attribute="class" defaultTheme={Theme.SYSTEM} enableSystem>
+    <ThemeProvider attribute="class" defaultTheme={Theme.DARK} enableSystem>
       <Component {...pageProps} />
     </ThemeProvider>
   );
