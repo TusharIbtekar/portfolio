@@ -7,7 +7,7 @@ export default function NavigationBar() {
   return (
     <div className="space-x-5 sm:flex">
       {ACTIONS.map((action, index) => {
-        const active = pathName?.includes(action.href || "/");
+        const active = pathName === action.href;
         return (
           (action.slot === "nav" || action.slot === "home") && (
             <Link
