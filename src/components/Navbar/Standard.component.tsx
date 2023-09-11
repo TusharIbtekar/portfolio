@@ -1,3 +1,4 @@
+"use client";
 import ThemeSwitcher from "./ThemeSwitcher.component";
 import NavigationBar from "./NavigationBar.component";
 import { usePathname } from "next/navigation";

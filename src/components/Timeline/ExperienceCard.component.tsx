@@ -1,4 +1,4 @@
-import type { Experience, Experiences } from "@/types";
+import type { Experiences } from "@/types";
 import { Tag } from "@/components/Tags";
 
 export function ExperienceCard({ experiences }: Experiences): JSX.Element {

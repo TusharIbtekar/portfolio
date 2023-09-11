@@ -1,4 +1,3 @@
-"use client";
 import type { Projects } from "@/types";
 import { ProjectCard } from "@/components/Projects";
 import { PROJECTS } from "@/lib/projects";
