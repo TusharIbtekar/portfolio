@@ -7,6 +7,12 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "next-themes";
 import "@/styles/global.css";
 
+export const metadata = {
+  title: "Tushar Ibtekar",
+  description: "Turning caffeine into code",
+  keywords: ["Software Enginner", "React.js", "Next.js", "Backend", "Frontend"],
+};
+
 export default function RootLayout({
   children,
 }: {
