@@ -1,10 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import type { Experiences } from "@/types";
 import { ExperienceCard } from "@/components/Timeline";
 import { EXPERIENCES } from "@/lib/experiences";
 
-export default function Timeline({ experiences }: Experiences): JSX.Element {
+export default function Timeline(): JSX.Element {
   return (
     <div className="flex flex-grow pt-16 mt-10 pb-12">
       <div className="flex-grow flex flex-col items-center max-w-sm sm:max-w-2xl w-full mx-auto px-0 sm:px-16">

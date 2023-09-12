@@ -5,7 +5,3 @@ export interface Project {
   githubLink?: string;
   demoLink?: string;
 }
-
-export interface Projects {
-  projects: Project[];
-}

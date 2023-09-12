@@ -1,7 +1,13 @@
-import type { Experiences } from "@/types";
+import type { Experience } from "@/types";
 import { Tag } from "@/components/Tags";
 
-export function ExperienceCard({ experiences }: Experiences): JSX.Element {
+interface ExperienceCardProps {
+  experiences: Experience[];
+}
+
+export function ExperienceCard({
+  experiences,
+}: ExperienceCardProps): JSX.Element {
   return (
     <div className="w-full">
       {experiences.map((experience, index) => {

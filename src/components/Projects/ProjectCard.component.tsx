@@ -1,9 +1,13 @@
 import { Tag } from "@/components/Tags";
-import type { Projects } from "@/types";
+import type { Project } from "@/types";
 import { Github, Radio } from "lucide-react";
 import Link from "next/link";
 
-export function ProjectCard({ projects }: Projects): JSX.Element {
+interface ProjectCardProps {
+  projects: Project[];
+}
+
+export function ProjectCard({ projects }: ProjectCardProps): JSX.Element {
   return (
     <div className="w-full">
       {projects.map((project, index) => {
