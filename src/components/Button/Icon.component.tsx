@@ -2,11 +2,10 @@ import { ButtonHTMLAttributes, forwardRef } from "react";
 
 interface IconProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export const Icon = forwardRef<HTMLButtonElement, IconProps>(function Icon({
-  children,
-  className,
-  ...rest
-}, ref) {
+export const Icon = forwardRef<HTMLButtonElement, IconProps>(function Icon(
+  { children, className, ...rest },
+  ref
+) {
   return (
     <button
       className={`relative inline-flex items-center px-3 py-2 bg-gray-50 
@@ -21,4 +20,4 @@ export const Icon = forwardRef<HTMLButtonElement, IconProps>(function Icon({
       {children}
     </button>
   );
-})
+});
