@@ -34,6 +34,20 @@ export const PROJECTS: Array<Project> = [
     demoLink: "https://react-todoo.vercel.app/",
   },
   {
+    name: "Express Authentication",
+    stack: [
+      "nodejs",
+      "expressjs",
+      "typescript",
+      "postgresql",
+      "typeorm",
+      "jwt",
+      "bcrypt",
+      "swagger",
+    ],
+    githubLink: "https://github.com/TusharIbtekar/authentication-express-node",
+  },
+  {
     name: "Examsspace",
     affliation: "Dast Inc.",
     stack: ["Angular", "Sass", "JWT", "REST API"],
