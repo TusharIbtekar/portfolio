@@ -6,6 +6,7 @@ import {
   ShipWheel,
   Linkedin,
   Home,
+  PencilLine,
 } from "lucide-react";
 
 export const ACTIONS: Array<NavigationItem> = [
@@ -49,6 +50,20 @@ export const ACTIONS: Array<NavigationItem> = [
     href: "https://www.linkedin.com/in/tushar-ibtekar/",
     icon: <Linkedin />,
     text: "LinkedIn",
+    slot: "footer",
+  },
+  {
+    type: NavigationItemType.LINK,
+    href: "https://dev.to/ibtekar",
+    icon: <PencilLine />,
+    text: "dev.to",
+    slot: "footer",
+  },
+  {
+    type: NavigationItemType.LINK,
+    href: "https://medium.com/@ibtekar",
+    icon: <PencilLine />,
+    text: "medium",
     slot: "footer",
   },
 ];

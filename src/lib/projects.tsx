@@ -2,6 +2,13 @@ import type { Project } from "@/types";
 
 export const PROJECTS: Array<Project> = [
   {
+    name: "Turf Forensics",
+    affliation: "Spring Rain Private Ltd",
+    stack: ["nodejs", "typescript", "azure"],
+    githubLink: "",
+    demoLink: "",
+  },
+  {
     name: "TimeTackle",
     affliation: "Brain Station 23",
     stack: ["reactjs", "typescript", "amcharts", "ant-design", "tailwindcss"],
@@ -13,6 +20,12 @@ export const PROJECTS: Array<Project> = [
     stack: ["nextjs", "typescript", "tailwindcss", "ci/cd"],
     githubLink: "https://github.com/TusharIbtekar/portfolio",
     demoLink: "https://www.ibtekar.dev/",
+  },
+  {
+    name: "Rusty C Compiler",
+    stack: ["rust"],
+    githubLink: "https://github.com/TusharIbtekar/rusty-c-compiler",
+    demoLink: "",
   },
   {
     name: "Ethereum Lottery",

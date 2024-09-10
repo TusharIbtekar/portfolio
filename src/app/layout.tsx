@@ -7,7 +7,14 @@ import { ThemeProvider } from "@/components/Providers";
 export const metadata = {
   title: "Tushar Ibtekar",
   description: "Turning caffeine into code",
-  keywords: ["Software Enginner", "React.js", "Next.js", "Backend", "Frontend"],
+  keywords: [
+    "Software Enginner",
+    "React.js",
+    "Next.js",
+    "Backend",
+    "Frontend",
+    "Nodejs",
+  ],
 };
 
 export default function RootLayout({
