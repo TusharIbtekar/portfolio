@@ -27,7 +27,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
       </p>
     </div>
     <figure class="portrait">
-      {portrait ? <img src={portrait} alt="Pixel-art scene of a programmer at a desk at night" width="256" height="256" /> : <div class="portrait-slot" />}
+      {portrait ? <img src={portrait} alt="at desk" width="256" height="256" /> : <div class="portrait-slot" />}
     </figure>
   </div>
 
