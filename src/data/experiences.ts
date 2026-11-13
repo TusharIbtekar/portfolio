@@ -14,7 +14,7 @@ export const experiences: Experience[] = [
     role: 'Senior Software Engineer',
     period: 'Apr 2024 - Present',
     summary:
-      "I own backend services and lead the React/TypeScript frontend and the five-person engineering team on Alent Dynamic. Across Strativ, I drive the AI transformation: Claude Code adoption across teams, agent skills and CLAUDE.md conventions, and OpenTelemetry-based observability for LLM usage.",
+      "I own backend services and lead the React/TypeScript frontend and the five-person engineering team on Alent Dynamic. Across Strativ, I lead the AI transformation: how our teams build with coding agents and LLMs, and the infrastructure and practices behind it.",
     project: {
       name: 'Alent Dynamic',
       description:
