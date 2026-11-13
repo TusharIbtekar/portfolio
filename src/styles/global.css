@@ -140,7 +140,8 @@ a:hover {
 }
 
 .item a[href^='http']::after,
-.all-posts a[href^='http']::after {
+.all-posts a[href^='http']::after,
+.section-head a[href^='http']::after {
   content: '\a0\2197';
   font-size: 0.8em;
   color: var(--muted);
@@ -166,6 +167,18 @@ h1 {
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin: 0;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.section-head h2 {
+  margin-bottom: 0;
 }
 
 h2 {

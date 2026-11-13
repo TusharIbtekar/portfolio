@@ -77,7 +77,10 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
   </section>
 
   <section id="publications">
-    <h2>Publications</h2>
+    <div class="section-head">
+      <h2>Publications</h2>
+      {scholar && <a class="small" href={scholar}>Google Scholar</a>}
+    </div>
     {
       publications.map((pub) => (
         <article class="item">
@@ -87,7 +90,6 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
         </article>
       ))
     }
-    {scholar && <p class="small all-posts"><a href={scholar}>Google Scholar</a></p>}
   </section>
 
   <section id="skills">
