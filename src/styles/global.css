@@ -213,7 +213,7 @@ section {
 
 .hero {
   display: grid;
-  grid-template-columns: 1fr 16rem;
+  grid-template-columns: 1fr 17rem;
   column-gap: 2.5rem;
   align-items: center;
   padding-top: 2.5rem;
@@ -243,7 +243,7 @@ section {
 
 .portrait {
   margin: 0;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 1;
   border-radius: 16px;
   overflow: hidden;
   background: var(--raised);

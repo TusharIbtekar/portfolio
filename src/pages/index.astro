@@ -9,7 +9,7 @@ import { publications } from '../data/publications';
 import { links } from '../data/links';
 import { formatDate } from '../lib/format';
 
-const portrait = Object.keys(import.meta.glob('/public/portrait.{jpg,png,webp}'))[0]?.replace('/public', '');
+const portrait = Object.keys(import.meta.glob('/public/portrait.{jpg,png,webp,gif}'))[0]?.replace('/public', '');
 const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
 ---
 
@@ -27,7 +27,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
       </p>
     </div>
     <figure class="portrait">
-      {portrait ? <img src={portrait} alt="Tushar Ibtekar" width="640" height="800" /> : <div class="portrait-slot" />}
+      {portrait ? <img src={portrait} alt="Pixel-art scene of a programmer at a desk at night" width="768" height="741" /> : <div class="portrait-slot" />}
     </figure>
   </div>
 
