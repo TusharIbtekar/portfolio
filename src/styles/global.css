@@ -261,7 +261,7 @@ section {
 }
 
 .portrait-slot {
-  aspect-ratio: 256 / 247;
+  aspect-ratio: 1;
 }
 
 @media (min-resolution: 1.25dppx) and (max-resolution: 1.75dppx) {
