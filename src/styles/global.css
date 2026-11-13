@@ -7,6 +7,7 @@
     --muted: #756c60;
     --accent: #b45309;
     --border: rgba(31, 27, 22, 0.08);
+    --shadow: 0 8px 24px rgba(31, 27, 22, 0.08);
   }
 }
 
@@ -19,6 +20,7 @@
     --muted: #8a847a;
     --accent: #e8a15a;
     --border: rgba(239, 233, 222, 0.08);
+    --shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
   }
 
   .astro-code span {
@@ -72,7 +74,7 @@ pre,
 }
 
 .container {
-  max-width: 40rem;
+  max-width: 44rem;
   margin: 0 auto;
   padding: 1.5rem;
   overflow-wrap: break-word;
@@ -125,9 +127,11 @@ h1 {
 }
 
 h2 {
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin: 0 0 0.75rem;
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem;
 }
 
 .site-header {
@@ -160,8 +164,32 @@ h2 {
   color: var(--secondary);
 }
 
+.site-nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.site-nav a::before {
+  content: '';
+  width: 0.75rem;
+  height: 1px;
+  background: var(--border);
+  transition: width 200ms var(--ease), background-color 200ms var(--ease);
+}
+
+.site-nav a:hover::before {
+  width: 1.25rem;
+  background: var(--secondary);
+}
+
 .site-nav [aria-current] {
   color: var(--fg);
+}
+
+.site-nav [aria-current]::before {
+  width: 1.5rem;
+  background: var(--accent);
 }
 
 section {
@@ -184,6 +212,10 @@ section {
 }
 
 .hero {
+  display: grid;
+  grid-template-columns: 1fr 16rem;
+  column-gap: 2.5rem;
+  align-items: center;
   padding-top: 2.5rem;
 }
 
@@ -193,14 +225,119 @@ section {
 
 .hero .lead {
   margin: 0.5rem 0 0;
+  font-size: 1.125rem;
   color: var(--secondary);
+}
+
+.hero .bio {
+  margin: 1rem 0 0;
+  max-width: 26rem;
 }
 
 .hero-links {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem 1.25rem;
-  margin: 1rem 0 0;
+  margin: 1.25rem 0 0;
+}
+
+.portrait {
+  margin: 0;
+  aspect-ratio: 4 / 5;
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--raised);
+  border: 1px solid var(--border);
+}
+
+.portrait img,
+.portrait-slot {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-text > *,
+.portrait {
+  animation: rise 500ms var(--ease) both;
+}
+
+.hero-text > :nth-child(2) {
+  animation-delay: 50ms;
+}
+
+.hero-text > :nth-child(3) {
+  animation-delay: 100ms;
+}
+
+.hero-text > :nth-child(4) {
+  animation-delay: 150ms;
+}
+
+.portrait {
+  animation-delay: 200ms;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-text > *,
+  .portrait {
+    animation: none;
+  }
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  display: block;
+  padding: 1.25rem;
+  border-radius: 12px;
+  background: var(--raised);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: transform 200ms var(--ease), box-shadow 200ms var(--ease), color 150ms var(--ease);
+}
+
+.card:hover {
+  color: inherit;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.card strong {
+  display: block;
+  font-weight: 500;
+  transition: color 150ms var(--ease);
+}
+
+.card:hover strong {
+  color: var(--accent);
+}
+
+.card .period {
+  display: block;
+  margin-top: 0.125rem;
+}
+
+.card p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+  color: var(--secondary);
+}
+
+.card .tags li {
+  background: var(--bg);
 }
 
 section {
@@ -354,7 +491,10 @@ h1 + .post-list {
 }
 
 .prose h2 {
+  font-family: var(--sans);
   font-size: 1.375rem;
+  font-weight: 500;
+  letter-spacing: 0;
   margin: 2rem 0 0.75rem;
 }
 
@@ -409,9 +549,9 @@ h1 + .post-list {
 
 @media (min-width: 64rem) {
   .container {
-    max-width: 58rem;
+    max-width: 62rem;
     display: grid;
-    grid-template-columns: 11rem 40rem;
+    grid-template-columns: 11rem 44rem;
     column-gap: 4rem;
     align-items: start;
   }
@@ -465,7 +605,28 @@ h1 + .post-list {
     gap: 1rem;
   }
 
+  .site-nav a::before {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    row-gap: 2rem;
+  }
+
+  .portrait {
+    max-width: 18rem;
+  }
+
+  .portrait:has(.portrait-slot) {
+    display: none;
+  }
+
   .hero h1 {
     font-size: 2.25rem;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
   }
 }

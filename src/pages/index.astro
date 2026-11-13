@@ -9,6 +9,7 @@ import { publications } from '../data/publications';
 import { links } from '../data/links';
 import { formatDate } from '../lib/format';
 
+const portrait = Object.keys(import.meta.glob('/public/portrait.{jpg,png,webp}'))[0]?.replace('/public', '');
 const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
 ---
 
@@ -17,11 +18,17 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
   description="Tushar Ibtekar, polyglot software engineer. Experience, projects and blog."
 >
   <div class="hero">
-    <h1>Tushar Ibtekar</h1>
-    <p class="lead">Polyglot Software Engineer</p>
-    <p class="hero-links small">
-      {links.filter((link) => !link.footerOnly).map((link) => <a href={link.href}>{link.label}</a>)}
-    </p>
+    <div class="hero-text">
+      <h1>Tushar Ibtekar</h1>
+      <p class="lead">Polyglot Software Engineer</p>
+      <p class="bio">Senior software engineer at Strativ AB, leading the five-person team behind Alent Dynamic.</p>
+      <p class="hero-links small">
+        {links.filter((link) => !link.footerOnly).map((link) => <a href={link.href}>{link.label}</a>)}
+      </p>
+    </div>
+    <figure class="portrait">
+      {portrait ? <img src={portrait} alt="Tushar Ibtekar" width="640" height="800" /> : <div class="portrait-slot" />}
+    </figure>
   </div>
 
   <section id="experience">
@@ -98,27 +105,36 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
 
   <section id="projects">
     <h2>Projects</h2>
-    {
-      projects.map((project) => (
-        <article class="item">
-          <div class="item-head">
-            <strong>{project.repo ? <a href={project.repo}>{project.name}</a> : project.name}</strong>
+    <div class="cards">
+      {
+        projects.map((project) => (
+          <a class="card" href={project.demo ?? project.repo}>
+            <strong>{project.name}</strong>
             {project.affiliation && <span class="period mono">{project.affiliation}</span>}
-          </div>
-          {project.highlights.length > 0 && (
-            <ul>
-              {project.highlights.map((h) => <li>{h}</li>)}
-            </ul>
-          )}
-          <Tags tags={project.tags} />
-          {(project.repo || project.demo) && (
-            <div class="item-links small">
-              {project.repo && <a href={project.repo}>Repo</a>}
-              {project.demo && <a href={project.demo}>Demo</a>}
-            </div>
-          )}
-        </article>
-      ))
-    }
+            <p>{project.highlights.join(' ')}</p>
+            <Tags tags={project.tags} />
+          </a>
+        ))
+      }
+    </div>
   </section>
 </Base>
+
+<script>
+  const links = [...document.querySelectorAll<HTMLAnchorElement>('.site-nav a[href^="/#"]')];
+  const byId = new Map(links.map((a) => [a.getAttribute('href')!.slice(2), a]));
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (!entry.isIntersecting) continue;
+        for (const a of links) a.removeAttribute('aria-current');
+        byId.get(entry.target.id)?.setAttribute('aria-current', 'true');
+      }
+    },
+    { rootMargin: '-15% 0px -75% 0px' },
+  );
+  for (const id of byId.keys()) {
+    const section = document.getElementById(id);
+    if (section) observer.observe(section);
+  }
+</script>

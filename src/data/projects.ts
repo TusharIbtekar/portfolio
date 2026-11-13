@@ -52,7 +52,7 @@ export const projects: Project[] = [
   {
     name: 'Portfolio',
     tags: ['astro', 'typescript', 'css'],
-    highlights: ['This site. Static Astro, plain CSS, zero client-side JavaScript.'],
+    highlights: ['This site. Static Astro, plain CSS, and a dozen lines of JavaScript.'],
     repo: 'https://github.com/TusharIbtekar/portfolio',
   },
 ];
