@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import { formatDate } from '../../lib/format';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Base title="Blog | Tushar Ibtekar" description="Blog posts by Tushar Ibtekar, polyglot software engineer.">
+  <h1>Blog</h1>
+  <ul class="post-list">
+    {
+      posts.map((post) => (
+        <li>
+          <a href={`/blog/${post.id}`}>{post.data.title}</a>
+          <time class="muted small mono" datetime={post.data.date.toISOString()}>
+            {formatDate(post.data.date)}
+          </time>
+        </li>
+      ))
+    }
+  </ul>
+</Base>

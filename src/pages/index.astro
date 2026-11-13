@@ -1,0 +1,124 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Tags from '../components/Tags.astro';
+import { experiences } from '../data/experiences';
+import { projects } from '../data/projects';
+import { skills } from '../data/skills';
+import { publications } from '../data/publications';
+import { links } from '../data/links';
+import { formatDate } from '../lib/format';
+
+const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+---
+
+<Base
+  title="Tushar Ibtekar"
+  description="Tushar Ibtekar, polyglot software engineer. Experience, projects and blog."
+>
+  <div class="hero">
+    <h1>Tushar Ibtekar</h1>
+    <p class="lead">Polyglot Software Engineer</p>
+    <p class="hero-links small">
+      {links.filter((link) => !link.footerOnly).map((link) => <a href={link.href}>{link.label}</a>)}
+    </p>
+  </div>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    {
+      experiences.map((exp) => (
+        <article class="item">
+          <div class="item-head">
+            <strong>{exp.company}</strong>
+            <span class:list={['period', 'mono', { current: exp.period.endsWith('Present') }]}>{exp.period}</span>
+          </div>
+          <p>{exp.role}</p>
+          {exp.summary && <p class="summary">{exp.summary}</p>}
+          {exp.project && (
+            <div class="project">
+              <p class="mono small muted">{exp.project.name}</p>
+              <p>{exp.project.description}</p>
+            </div>
+          )}
+          {exp.highlights.length > 0 && (
+            <ul>
+              {exp.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+          )}
+          <Tags tags={exp.tags} />
+        </article>
+      ))
+    }
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <ul class="post-list">
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.id}`}>{post.data.title}</a>
+            <time class="muted small mono" datetime={post.data.date.toISOString()}>
+              {formatDate(post.data.date)}
+            </time>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="small all-posts"><a href="/blog/">All posts</a></p>
+  </section>
+
+  <section id="publications">
+    <h2>Publications</h2>
+    {
+      publications.map((pub) => (
+        <article class="item">
+          <strong><a href={`https://doi.org/${pub.doi}`}>{pub.title}</a></strong>
+          <p>{pub.authors.join(', ')}</p>
+          <p class="muted small">{pub.venue}</p>
+        </article>
+      ))
+    }
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <dl class="skills">
+      {
+        skills.map((s) => (
+          <>
+            <dt class="mono">{s.group}</dt>
+            <dd><Tags tags={s.items} /></dd>
+          </>
+        ))
+      }
+    </dl>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    {
+      projects.map((project) => (
+        <article class="item">
+          <div class="item-head">
+            <strong>{project.repo ? <a href={project.repo}>{project.name}</a> : project.name}</strong>
+            {project.affiliation && <span class="period mono">{project.affiliation}</span>}
+          </div>
+          {project.highlights.length > 0 && (
+            <ul>
+              {project.highlights.map((h) => <li>{h}</li>)}
+            </ul>
+          )}
+          <Tags tags={project.tags} />
+          {(project.repo || project.demo) && (
+            <div class="item-links small">
+              {project.repo && <a href={project.repo}>Repo</a>}
+              {project.demo && <a href={project.demo}>Demo</a>}
+            </div>
+          )}
+        </article>
+      ))
+    }
+  </section>
+</Base>

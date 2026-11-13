@@ -2,9 +2,8 @@
 <p>Personal Portfolio Website</p>
 
 ## Built with
-- **Framework**: [Next.js](https://nextjs.org/)
-- **Styling**: [TailwindCSS](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Framework**: [Astro](https://astro.build/)
+- **Styling**: plain CSS
 - **Deployment**: [Vercel](https://vercel.com)
 
 ## Running Locally
@@ -15,9 +14,7 @@ cd portfolio && pnpm install
 pnpm dev
 ```
 
-The above commands will start the application on [http://localhost:3000/](http://localhost:3000)
-
-
+The above commands will start the application on [http://localhost:4321/](http://localhost:4321)
 
 ## Cloning / Forking
 
