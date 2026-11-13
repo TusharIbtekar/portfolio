@@ -45,6 +45,7 @@ const ogImage = new URL('/og.png', Astro.site);
     <meta name="twitter:image" content={ogImage} />
   </head>
   <body>
+    <div class="cursor-glow" aria-hidden="true"></div>
     <div class="container">
       <header class="site-header">
         <a class="name" href="/">Tushar Ibtekar</a>
@@ -61,3 +62,20 @@ const ogImage = new URL('/og.png', Astro.site);
     </div>
   </body>
 </html>
+
+<script>
+  const glow = document.querySelector<HTMLElement>('.cursor-glow');
+  const wanted = matchMedia('(prefers-color-scheme: dark) and (pointer: fine) and (hover: hover) and (prefers-reduced-motion: no-preference)');
+  if (glow && wanted.matches) {
+    document.addEventListener(
+      'pointermove',
+      (e) => {
+        glow.style.setProperty('--cx', `${e.clientX}px`);
+        glow.style.setProperty('--cy', `${e.clientY}px`);
+        glow.classList.add('on');
+      },
+      { passive: true },
+    );
+    document.documentElement.addEventListener('pointerleave', () => glow.classList.remove('on'));
+  }
+</script>
