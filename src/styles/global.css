@@ -118,7 +118,7 @@ pre,
 a {
   color: inherit;
   text-decoration: underline;
-  text-decoration-color: color-mix(in srgb, currentColor 30%, transparent);
+  text-decoration-color: color-mix(in srgb, currentColor 50%, transparent);
   text-underline-offset: 0.15em;
   transition: color 150ms var(--ease), text-decoration-color 150ms var(--ease);
 }
@@ -137,6 +137,13 @@ a:hover {
   display: inline-block;
   padding: 0.375rem 0;
   margin: -0.375rem 0;
+}
+
+.item a[href^='http']::after,
+.all-posts a[href^='http']::after {
+  content: '\a0\2197';
+  font-size: 0.8em;
+  color: var(--muted);
 }
 
 :focus-visible {
@@ -385,6 +392,20 @@ section {
 
 .card .tags li {
   background: var(--bg);
+}
+
+.card-link {
+  display: block;
+  margin-top: 0.75rem;
+}
+
+.card-link::after {
+  content: '\a0\2197';
+  font-size: 0.8em;
+}
+
+.card:hover .card-link {
+  color: var(--accent);
 }
 
 section {

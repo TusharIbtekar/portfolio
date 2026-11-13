@@ -5,7 +5,7 @@ import Tags from '../components/Tags.astro';
 import { experiences } from '../data/experiences';
 import { projects } from '../data/projects';
 import { skills } from '../data/skills';
-import { publications } from '../data/publications';
+import { publications, scholar } from '../data/publications';
 import { links } from '../data/links';
 import { formatDate } from '../lib/format';
 
@@ -87,6 +87,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
         </article>
       ))
     }
+    {scholar && <p class="small all-posts"><a href={scholar}>Google Scholar</a></p>}
   </section>
 
   <section id="skills">
@@ -113,6 +114,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.valueOf()
             {project.affiliation && <span class="period mono">{project.affiliation}</span>}
             <p>{project.highlights.join(' ')}</p>
             <Tags tags={project.tags} />
+            <span class="card-link small muted">{project.demo ? new URL(project.demo).hostname : 'GitHub'}</span>
           </a>
         ))
       }

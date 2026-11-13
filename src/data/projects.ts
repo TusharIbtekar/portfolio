@@ -36,6 +36,14 @@ export const projects: Project[] = [
     repo: 'https://github.com/TusharIbtekar/go-typ0',
   },
   {
+    name: 'Bumpr',
+    tags: ['three.js', 'webgl', 'websocket', 'webrtc', 'cloudflare', 'vite'],
+    highlights: [
+      'A car-soccer game in the browser: a 3D arena with three cars and boost, 1v1 and 2v2, single player against bots or online multiplayer, plus a freestyle practice mode. Closed source.',
+    ],
+    demo: 'https://bumpr.ibtekar.dev',
+  },
+  {
     name: 'Rusty C Compiler',
     tags: ['rust'],
     highlights: [

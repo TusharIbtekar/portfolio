@@ -48,6 +48,7 @@ export const experiences: Experience[] = [
     tags: ['react', 'typescript', 'redux-toolkit', 'chrome-extension'],
     highlights: [
       'Built features for TimeTackle, a time-management web app and Chrome extension, in React/TypeScript; migrated state management to Redux Toolkit and set up a testing pipeline that cut manual testing by about 20%.',
+      'Built proofs of concept with leadership to validate product ideas, working across the team.',
     ],
   },
   {
@@ -55,6 +56,10 @@ export const experiences: Experience[] = [
     role: 'Frontend Developer',
     period: 'Jan 2021 - Jun 2021',
     tags: ['angular', 'sass'],
-    highlights: ['Built an online exam system in Angular.'],
+    highlights: [
+      'Owned the frontend architecture and maintained the design system.',
+      'Delivered a large project with a three-person team.',
+      'Built an online exam system in Angular.',
+    ],
   },
 ];

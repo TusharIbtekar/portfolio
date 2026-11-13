@@ -5,6 +5,8 @@ export type Publication = {
   doi: string;
 };
 
+export const scholar = 'https://scholar.google.com/citations?user=J7z8_sIAAAAJ&hl=en';
+
 export const publications: Publication[] = [
   {
     title: 'Comparative Study Between ResNet and EfficientNet Family for Classification of Leukemia',
